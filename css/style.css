@@ -1,0 +1,512 @@
+/* ==========================================================================
+   HOJA DE ESTILOS: css/style.css
+   Fondo rosa claro, botones morado claro, tipografía Arial
+   Copyright (c) [2025] [René Peña Martínez]. Licensed under CC BY 4.0.
+   Full license text available at https://creativecommons.org/licenses/by/4.0/
+   ========================================================================== */
+
+/* Paleta en variables para mantener consistencia */
+:root {
+  /* Rosas */
+  --rosa-fondo: #fdf2f8;
+  --rosa-encabezado: #fce7f3;
+  --rosa-borde: #f9c6de;
+
+  /* Morados */
+  --morado-muy-claro: #f3e8ff;
+  --morado-claro: #ddd6fe;
+  --morado-medio: #c4b5fd;
+  --morado-acento: #a78bfa;
+  --morado-texto: #5b21b6;
+  --morado-oscuro: #3b0764;
+
+  /* Neutros */
+  --texto: #2d2433;
+  --texto-suave: #5b5163;
+  --borde: #e9d5e8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--rosa-fondo);
+  color: var(--texto);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Soporte para el atributo hidden aunque haya display en las clases */
+[hidden] {
+  display: none !important;
+}
+
+/* Foco visible para navegación con teclado */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--morado-acento);
+  outline-offset: 2px;
+}
+
+/* Encabezado */
+.header {
+  background-color: var(--rosa-encabezado);
+  border-bottom: 2px solid var(--morado-medio);
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  font-size: 24px;
+  color: var(--morado-oscuro);
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--texto-suave);
+}
+
+/* Contenedor principal */
+.main-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 20px;
+  flex: 1;
+}
+
+/* Panel de control */
+.search-panel {
+  background-color: #ffffff;
+  border: 1px solid var(--rosa-borde);
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.search-panel h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--morado-oscuro);
+  border-bottom: 1px solid var(--borde);
+  padding-bottom: 6px;
+}
+
+.instructions {
+  font-size: 14px;
+  color: var(--texto-suave);
+  margin-bottom: 16px;
+}
+
+/* Botones de categorías */
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.btn-category {
+  background-color: var(--morado-muy-claro);
+  color: var(--morado-texto);
+  border: 1px solid var(--morado-claro);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-category:hover {
+  background-color: var(--morado-claro);
+  border-color: var(--morado-medio);
+}
+
+.btn-category.active {
+  background-color: var(--morado-medio);
+  color: var(--morado-oscuro);
+  border-color: var(--morado-acento);
+  font-weight: bold;
+}
+
+/* Formulario (alineado a la izquierda para mejor lectura) */
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--texto);
+  margin-bottom: 4px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--morado-claro);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--texto);
+  background-color: #ffffff;
+}
+
+.form-group input:focus {
+  outline: 2px solid var(--morado-acento);
+  border-color: var(--morado-acento);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.preview-text {
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+.preview-text strong {
+  color: var(--morado-texto);
+}
+
+.btn-submit {
+  background-color: var(--morado-medio);
+  color: var(--morado-oscuro);
+  border: 1px solid var(--morado-acento);
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: var(--morado-acento);
+}
+
+.btn-submit:disabled {
+  background-color: var(--morado-claro);
+  color: var(--texto-suave);
+  cursor: wait;
+}
+
+/* Información técnica */
+.technical-info {
+  margin-top: 16px;
+  padding: 10px 12px;
+  background-color: var(--rosa-fondo);
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--texto-suave);
+  word-break: break-all;
+  text-align: left;
+}
+
+.technical-info strong {
+  color: var(--texto);
+  margin-right: 6px;
+}
+
+/* Indicador de estado */
+.status-box {
+  background-color: var(--morado-muy-claro);
+  border: 1px solid var(--morado-claro);
+  color: var(--morado-texto);
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Resultados */
+.results-panel {
+  margin-top: 12px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--rosa-borde);
+  padding-bottom: 8px;
+}
+
+.results-header h2 {
+  font-size: 18px;
+  color: var(--morado-oscuro);
+}
+
+.results-counter {
+  font-size: 13px;
+  color: var(--texto-suave);
+  font-weight: bold;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 20px;
+}
+
+/* Mensajes dentro de la cuadrícula (vacío / error) */
+.grid-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 30px;
+  border-radius: 6px;
+}
+
+.grid-message p + p {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.grid-message.empty {
+  color: var(--texto-suave);
+  background: #ffffff;
+  border: 1px solid var(--rosa-borde);
+}
+
+.grid-message.error {
+  background: #fef2f2;
+  border: 1px solid #f87171;
+  color: #991b1b;
+}
+
+/* Tarjetas */
+.card-item {
+  background-color: #ffffff;
+  border: 1px solid var(--rosa-borde);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-item:hover {
+  border-color: var(--morado-acento);
+}
+
+.card-image-box {
+  width: 100%;
+  height: 200px;
+  background-color: var(--rosa-encabezado);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+
+.card-id-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 2px;
+  max-width: calc(100% - 16px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--texto);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.card-date {
+  font-size: 12px;
+  color: var(--morado-texto);
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 13px;
+  color: var(--texto-suave);
+  line-height: 1.4;
+  margin-bottom: 14px;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-footer {
+  border-top: 1px solid var(--borde);
+  padding-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-detail {
+  background-color: var(--morado-muy-claro);
+  color: var(--morado-texto);
+  border: 1px solid var(--morado-medio);
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-detail:hover {
+  background-color: var(--morado-medio);
+  color: var(--morado-oscuro);
+}
+
+/* Modal */
+.detail-modal {
+  border: 1px solid var(--morado-medio);
+  border-radius: 6px;
+  max-width: 750px;
+  width: 90%;
+  max-height: 90vh;
+  margin: auto;
+  padding: 0;
+  box-shadow: 0 4px 16px rgba(59, 7, 100, 0.2);
+}
+
+.detail-modal::backdrop {
+  background-color: rgba(45, 20, 60, 0.5);
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 20px;
+  padding-top: 52px;
+  position: relative;
+}
+
+.btn-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-color: var(--morado-muy-claro);
+  border: 1px solid var(--morado-medio);
+  color: var(--morado-texto);
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-close:hover {
+  background-color: var(--morado-medio);
+  color: var(--morado-oscuro);
+}
+
+.modal-body img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  background-color: var(--rosa-fondo);
+  border: 1px solid var(--borde);
+  margin-bottom: 12px;
+}
+
+.modal-body h3 {
+  font-size: 18px;
+  margin-bottom: 4px;
+  color: var(--morado-oscuro);
+}
+
+.modal-meta {
+  font-size: 12px;
+  color: var(--morado-texto);
+  margin-bottom: 10px;
+}
+
+.modal-body p#modalDescription {
+  font-size: 13px;
+  color: var(--texto);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* Pie de página */
+.footer {
+  background-color: var(--rosa-encabezado);
+  border-top: 1px solid var(--rosa-borde);
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--texto-suave);
+}
+
+.footer p + p {
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .header h1 {
+    font-size: 20px;
+  }
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-submit {
+    width: 100%;
+  }
+}

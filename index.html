@@ -1,0 +1,108 @@
+<!-- Copyright (c) [2025] [René Peña Martínez]. Licensed under CC BY 4.0. -->
+<!-- Full license text available at https://creativecommons.org/licenses/by/4.0/ -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Imágenes - API de la NASA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <h1>Portal web de Consulta de Imágenes Espaciales de la NASA</h1>
+      <p class="subtitle">Aplicación web para consumir el servicio REST oficial de la NASA  (images-api.nasa.gov).
+          <p style="font-size:16px; font-weight:bold; color:#5b21b6; margin-bottom:6px;">Elaborado por: LIZETH GUADALUPE BENITEZ VENEGAS</p>
+      </p>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- PANEL DE CONTROL Y FORMULARIO -->
+    <section class="search-panel">
+      <h2>Opciones de consulta</h2>
+      <p class="instructions">
+        Seleccione una categoría predeterminada o ingrese un término específico en el campo de texto antes de procesar:
+      </p>
+
+      <!-- Botones de categorías directas -->
+      <div class="category-buttons" id="quickOptions">
+        <button type="button" class="btn-category active" data-query="planets">Planetas</button>
+        <button type="button" class="btn-category" data-query="galaxy">Galaxias</button>
+        <button type="button" class="btn-category" data-query="nebula">Nebulosas</button>
+        <button type="button" class="btn-category" data-query="black hole">Agujeros Negros</button>
+        <button type="button" class="btn-category" data-query="mars rover">Marte y Rovers</button>
+        <button type="button" class="btn-category" data-query="moon apollo">La Luna</button>
+      </div>
+
+      <!-- Formulario de búsqueda manual -->
+      <form id="searchForm" class="search-form">
+        <div class="form-group">
+          <label for="queryInput">Término de búsqueda deseado:</label>
+          <input
+            type="text"
+            id="queryInput"
+            name="query"
+            value="planets"
+            placeholder="Ingrese un término en inglés (ej. Jupiter, Saturn, Hubble, Andromeda...)"
+            required
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="form-actions">
+          <div class="preview-text">
+            Consulta seleccionada: <strong id="queryPreviewText">"planets"</strong>
+          </div>
+          <button type="submit" id="btnSubmit" class="btn-submit">
+            Procesar Solicitud
+          </button>
+        </div>
+      </form>
+
+      <!-- Información técnica del endpoint -->
+      <div class="technical-info">
+        <strong>URL del endpoint HTTP:</strong>
+        <span id="apiEndpointUrl">https://images-api.nasa.gov/search?q=planets&amp;media_type=image</span>
+      </div>
+    </section>
+
+    <!-- INDICADOR DE ESTADO -->
+    <div id="statusContainer" class="status-box" hidden>
+      <p id="statusMessage">Consultando base de datos de la NASA...</p>
+    </div>
+
+    <!-- SECCIÓN DE RESULTADOS -->
+    <section class="results-panel">
+      <div class="results-header">
+        <h2>Resultados de la búsqueda</h2>
+        <span id="resultsCount" class="results-counter">0 imágenes encontradas</span>
+      </div>
+
+      <div id="resultsGrid" class="results-grid"></div>
+    </section>
+  </main>
+
+  <!-- MODAL DE DETALLE -->
+  <dialog id="imageModal" class="detail-modal">
+    <div class="modal-content">
+      <button type="button" id="closeModalBtn" class="btn-close">Cerrar [X]</button>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="Vista ampliada">
+        <h3 id="modalTitle"></h3>
+        <p id="modalMeta" class="modal-meta"></p>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="footer">
+    <p>Proyecto académico de ITIID de la UTVT a cargo del Mtro. René Peña. Consumo de APIs REST con JavaScript nativo.</p>
+    <p>Datos provistos por NASA Image and Video Library (servicio público gratuito sin clave de acceso).</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
